@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Intervention\Image\Facades\Image;
 
+use function PHPUnit\Framework\isEmpty;
+
 class PostsController extends Controller
 {
 //    uses the construct function to require a middleware auth()
@@ -18,24 +20,21 @@ class PostsController extends Controller
 //       displaying Users Profiles
 
        $user = auth()->user()->following->pluck('user_id');
-//       $owner= auth()->user()->profile->pluck('user_id');
-       $users_array=$user;
-//       orderby('created_at', 'DESC') same with latest
-//TODO:displays latest post by the user and his followers
-       (auth()->user()->posts->count()!=0)
-       ?
-           $posts = Post::whereIn('user_id',$users_array)->with('user')->latest()->paginate(5)
-       :
-           $posts = Post::whereIn('user_id',$user)->with('user')->latest()->paginate(5);
+      $following= auth()->user()->following->count();
 
-//       dd($post);
+        ($following!==0)
+        ?$posts = Post::whereIn('user_id',$user)->with('user')->latest()->paginate(5)
+        :
+        $posts= Post::orderBy('created_at','desc')->paginate(5);
+
+
       return view('posts.index',compact("posts"));
    }
 
     //controller for posting photos
     public function create(Post $post){
 //       authorize
-//        $this->authorize('update',$post->user);
+       $this->authorize('update',$post->user);
         //returns posts to be viewed
         return view('posts.create');
     }
@@ -62,7 +61,7 @@ class PostsController extends Controller
         ]);
 
         //dd(request()->all());
-       return redirect('/profile/'.auth()->user()->id);
+       return redirect('/profile/'.auth()->user()->username);
     }
 
     public function show(Post $post){

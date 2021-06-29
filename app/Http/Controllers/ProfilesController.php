@@ -12,13 +12,7 @@ class ProfilesController extends Controller
 {
     public function index(User $user)
     {
-       /*alternative of finding the user manually
-        $user=User::findOrFail($user);
-        return view('profiles.index',[
-            'user'=> $user,
-            ]);*/
-        //letting laravel find the user automatically
-//        caching
+        // $userid = User::whereUsername($username)->firstOrFail();
 
         $postCount=Cache::remember('count.post.'.$user->id,
             now()->addSecond(30) ,
@@ -29,6 +23,7 @@ class ProfilesController extends Controller
             now()->addSecond(30) ,
             function() use($user) {
                 return $user->profile->followers->count();
+                
             },);
 
         $followingCount = Cache::remember('count.following.'.$user->id,
@@ -39,7 +34,6 @@ class ProfilesController extends Controller
 
 
 //        determining whether th user already follows this profile
-//        Ternary conditional operator
        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id): false;
 
         return view('profiles.index',compact('user','follows','postCount','followersCount','followingCount'));
@@ -74,11 +68,11 @@ class ProfilesController extends Controller
             $image->save();
            $imageArray=['image'=> $imagePath];
         }
-        $user->profile()->update( array_merge(
+        $user->profile()->update(array_merge(
             $data,
             $imageArray ?? [],
         ));
 
-        return redirect("/profile/{$user->id}");
+        return redirect("/profile/{$user->username}");
     }
 }

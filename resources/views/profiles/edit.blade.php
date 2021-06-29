@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="/profile/{{$user->id}}" enctype="multipart/form-data" method="post">
+        <form action="/profile/{{$user->username}}" enctype="multipart/form-data" method="post">
             @csrf
             @method('PATCH')
 
@@ -12,7 +12,7 @@
                         <h2>Edit Profile</h2>
                     </div>
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label ">title</label>
+                        <label for="title" class="col-md-4 col-form-label font-bold">title</label>
 
                             <input id="title" type="title" class="form-control @error('title')
                                 is-invalid @enderror" name="title" value="{{ old('title') ?? $user->profile->title}}"  autocomplete="title">

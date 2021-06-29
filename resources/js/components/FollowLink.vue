@@ -1,8 +1,8 @@
-<template>
-    <div>
-        <button class="btn btn-primary ml-4 " @click="followUser" v-text="buttonText"></button>
 
-    </div>
+ <template>
+    <a href="">
+        <p class="text-primary font-weight-bold cursor" @click="followUser" v-text="buttonText"></p>
+    </a>
 </template>
 
 <script>

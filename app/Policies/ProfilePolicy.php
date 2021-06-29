@@ -6,7 +6,7 @@ use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProfilesPolicy
+class ProfilePolicy
 {
     use HandlesAuthorization;
 
@@ -55,8 +55,7 @@ class ProfilesPolicy
     {
         //security measures/policies for profile update
         //authorize user only when id match
-        return $user-> id == $profile ->user_id;
-
+        return $user->id == $profile->user_id;
     }
 
     /**
