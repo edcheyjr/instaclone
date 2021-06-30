@@ -84,31 +84,31 @@ Once configured
 ## The web app
 
 #### login
-<img src="/img/login.png">
+<img src="./img/login.png">
 
 #### register
-<img src="/img/register.png">
+<img src="./img/register.png">
 
 #### home
-<img src="img/home.png">
-<img src="img/home1.png">
+<img src="./img/home.png">
+<img src="./img/home1.png">
 
 #### dashboard
 **logged in person dashboard**
-<img src="img/dashboard_yours(2).png">
+<img src="./img/dashboard_yours(2).png">
 
 **other peoples dashboard**
-<img src="img/dashboard.png">
-<img src="img/dashboard1.png">
+<img src="./img/dashboard.png">
+<img src="./img/dashboard1.png">
 
 #### edit page
-<img src="img/edit.png">
+<img src="./img/edit.png">
 
 #### photo  page
-<img src="img/photo.png">
+<img src="./img/photo.png">
 
 #### post page
-<img src="img/update.png">
+<img src="./img/update.png">
 
 ## Where to Learn Laravel
 
