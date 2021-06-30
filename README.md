@@ -1,8 +1,6 @@
 ## About Instaclone
-
-    Its clone of some functionalities of instagram done in laravel free for anyone to use and improve,
-    written in blade.php and .vue on the frontend
-    and php laravel framework backend
+Its clone of some functionalities of instagram done in laravel free for anyone to use and improve,
+written in blade.php and .vue on the frontendand php laravel framework backend
 
 ## What it does
 
@@ -15,8 +13,8 @@
 
 ## How to use Instaclone
 
--   clone the repository from [instaclone]()
--   Ensure your have install composer **[composer download](https://getcomposer.org/download/)** Then write `composer install` on your terminal after navigating to the directory with the pulled repository
+-  clone the repository from **[instaclone](https://github.com/edcheyjr/instaclone.git)**
+-  Ensure your have install composer **[composer download](https://getcomposer.org/download/)** Then write `composer install` on your terminal after navigating to the directory with the pulled repository
 -   copy content from `env.example` to `.env` created at the root directory
     the file should look like this
 
@@ -92,25 +90,25 @@ Once configured
 <img src="/img/register.png">
 
 #### home
-<img src="/img/home.png">
-<img src="/img/home1.png">
+<img src="img/home.png">
+<img src="img/home1.png">
 
 #### dashboard
 **logged in person dashboard**
-<img src="/img/dashboard_yours(2).png">
+<img src="img/dashboard_yours(2).png">
 
 **other peoples dashboard**
-<img src="/img/dashboard.png">
-<img src="/img/dashboard1.png">
+<img src="img/dashboard.png">
+<img src="img/dashboard1.png">
 
 #### edit page
-<img src="/img/edit.png">
+<img src="img/edit.png">
 
 #### photo  page
-<img src="/img/photo.png">
+<img src="img/photo.png">
 
 #### post page
-<img src="/img/update.png">
+<img src="img/update.png">
 
 ## Where to Learn Laravel
 
