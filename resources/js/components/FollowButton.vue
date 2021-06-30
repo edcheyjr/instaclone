@@ -1,19 +1,18 @@
 <template>
-    <div>
-        <button class="btn btn-primary ml-4 " @click="followUser" v-text="buttonText"></button>
-
-    </div>
+        <span v-bind:class="style" @click="followUser" v-text="buttonText"></span>
 </template>
 
 <script>
     export default {
-        props:["username","follows"],
+        props:["username","follows","seen"],
 
         mounted() {
             console.log('Component mounted.');
         },
         data:function (){
-            return {status: this.follows,}
+            
+            return {status: this.follows,
+            seen: this.seen,}
         },
         methods:{
             followUser(){
@@ -33,15 +32,11 @@
     ,
     computed: {
         buttonText() {
-           /* if(this.status){
-                return "Unfollow";
-            }else {
-              return   "Follow";
-            }
-            // same as
-            */
-              return (this.status) ? "Unfollow" : "Follow";
-        }
-    }
+              return (!this.status) ? "unfollow" :  "follow";
+        },
+        style(){
+            return(!this.seen) ? "btn btn-primary ml-4" : "text-primary font-weight-bold cursor";
+            }  
+         }
 }
 </script>

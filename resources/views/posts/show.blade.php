@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-8">
-                    <img src="/storage/{{$post->image}}" class="w-100">
+                    <img src="/storage/{{$post->image}}" class="w-75">
                 </div>
                 <div class="col-4">
                     <div class="d-flex align-items-center">
@@ -18,8 +18,9 @@
                                 <a href="/profile/{{$post->user->username}}">
                                     <span class="text-dark">{{$post->user->username}}</span>
                                 </a> .
-
-                                <follow-link username="{{$post->user-> username}}" follows="{{$post->user->follows}}"></follow-link>
+                                <a>
+                                    <follow-button seen="{{true}}"username="{{$post->user-> username}}" follows="{{$post->user->follows}}"></follow-button>
+                                </a>
 
                             </div>
                         </div>

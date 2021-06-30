@@ -10,5 +10,5 @@ Confirm
 @endcomponent
 
 have fun,<br>
-CEO {{config('app.name')}} Chebii
+CEO {{config('app.name')}} Name
 @endcomponent

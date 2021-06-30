@@ -27,6 +27,9 @@ Route::get('/emails',function(){
 //follows controllers
 Route::post('/follow/{user}',[FollowsController::class,'store']);
 
+Route::fallback(function(){
+abort(404);
+});
 
 //post controllers
 Route::get('/',[PostsController::class,'index']);

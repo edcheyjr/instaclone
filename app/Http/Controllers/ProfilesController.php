@@ -35,7 +35,7 @@ class ProfilesController extends Controller
 
 //        determining whether th user already follows this profile
        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id): false;
-
+    
         return view('profiles.index',compact('user','follows','postCount','followersCount','followingCount'));
         }
     public function edit(User $user){

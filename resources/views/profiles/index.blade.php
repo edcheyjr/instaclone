@@ -14,7 +14,7 @@
                     {{-- follow-button--}}
                     @guest
                     @if($user->id)
-                    <follow-button user_id="{{$user_id->id}}" follows="{{$follows}}"></follow-button>
+                    <follow-button seen="{{false}}" user_id=" {{$user->id}}" follows="{{$follows}}"></follow-button>
                     @endif
                     @else
                     @if(auth()->user()->id!= $user->profile->user_id)
@@ -45,7 +45,7 @@
     <div class="row pt-4">
         {{-- TODO add default view --}}
         @foreach($user->posts as $post)
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pb-4">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pb-5">
             <a href="/p/{{$post->id}}">
                 <img src="/storage/{{$post->image}}" class="w-100">
             </a>

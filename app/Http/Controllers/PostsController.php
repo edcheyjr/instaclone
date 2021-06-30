@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Intervention\Image\Facades\Image;
 
-use function PHPUnit\Framework\isEmpty;
-
 class PostsController extends Controller
 {
 //    uses the construct function to require a middleware auth()
@@ -20,8 +18,7 @@ class PostsController extends Controller
 //       displaying Users Profiles
 
        $user = auth()->user()->following->pluck('user_id');
-      $following= auth()->user()->following->count();
-
+       $following= auth()->user()->following->count();    
         ($following!==0)
         ?$posts = Post::whereIn('user_id',$user)->with('user')->latest()->paginate(5)
         :
@@ -32,9 +29,10 @@ class PostsController extends Controller
    }
 
     //controller for posting photos
-    public function create(Post $post){
+    public function create(){
 //       authorize
-       $this->authorize('update',$post->user);
+       $this->authorize('update',auth()->user()->profile);
+    //    dd($post->user());
         //returns posts to be viewed
         return view('posts.create');
     }
