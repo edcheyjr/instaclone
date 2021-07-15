@@ -10,14 +10,14 @@
             console.log('Component mounted.');
         },
         data:function (){
-            
+
             return {status: this.follows,
             seen: this.seen,}
         },
         methods:{
             followUser(){
               // axios for making http calls calls to the backend
-               axios.post('/follow/'+ this.username)
+               axios.post(process.env.APP_URL+'follow/'+ this.username)
                     .then(response => {
                         this.status = ! this.status;
                        console.log(response.data);
@@ -36,7 +36,7 @@
         },
         style(){
             return(!this.seen) ? "btn btn-primary ml-4" : "text-primary font-weight-bold cursor";
-            }  
+            }
          }
 }
 </script>

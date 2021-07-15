@@ -23,12 +23,12 @@
                     @endguest
                 </div>
                 @can('update', $user->profile)
-                <a href="/p/create" class="text-primary">add new post</a>
+                <a href="{{route('posts.create')}}" class="text-primary">add new post</a>
                 @endcan
             </div>
             <div>
                 @can('update', $user->profile)
-                <a href="/profile/{{ $user->username}}/edit" class="text-primary">edit profile</a>
+                <a href={{route('profile.edit',$user->username)}} class="text-primary">edit profile</a>
                 @endcan
             </div>
             <div class="d-flex">
@@ -46,8 +46,8 @@
         {{-- TODO add default view --}}
         @foreach($user->posts as $post)
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pb-5">
-            <a href="/p/{{$post->id}}">
-                <img src="/storage/{{$post->image}}" class="w-100">
+            <a href="{{route('post.single', $post->id)}}">
+                <img src="{{ asset('storage/'.$post->image) }}" class="w-100">
             </a>
         </div>
         @endforeach

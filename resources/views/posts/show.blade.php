@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-8">
-                    <img src="/storage/{{$post->image}}" class="w-75">
+                    <img src="{{ asset('storage/'.$post->image) }}" class="w-75">
                 </div>
                 <div class="col-4">
                     <div class="d-flex align-items-center">

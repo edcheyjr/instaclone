@@ -89,4 +89,8 @@ class User extends Authenticatable
     {
         return 'username';
     }
+
+    function getImageAttribute(){
+        
+    }
 }

@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm my-auto">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                    <div><img src="/svg/instaclonelogo.svg" class="pr-3" style="max-height: 24px ;border-right: 1px solid #333333"></div>
+                    <div><img src="{{ asset('svg/instaclonelogo.svg') }}" class="pr-3" style="max-height: 24px ;border-right: 1px solid #333333"></div>
                     <div class="pl-3 font-semi-bold">instaclone</div>
                 </a>
 
@@ -52,13 +52,13 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link" href="/profile/{{Auth::user()->username}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img class="rounded-circle" src="{{ Auth::user()->profile->profileImage() }}" style="width: 2.75rem;" />
+                            <a id="navbarDropdown" class="nav-link" href="{{route('profile.show', Auth::user()->username)}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img class="rounded-circle" src="{{ asset(Auth::user()->profile->profileImage()) }}" style="width: 2.75rem;" />
 
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="/profile/{{Auth::user()->username}}">
+                                <a class="dropdown-item" href="{{route('profile.show', Auth::user()->username)}}">
                                     <p class="font-weight-bold my-auto">{{Auth::user()->username}}</p>
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

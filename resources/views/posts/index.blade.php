@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row my-auto  no-gutters justify-content-center">
         <div class='col-8  col-lg-6 mx-auto col-auto'>
-            <img src="/img/emptyspace.png" class="w-100" alt="emptyspaces">
+            <img src="{{ asset('img/emptyspace.png') }}" class="w-100" alt="emptyspaces">
             <p class="text-center font-weight-bold text">No Posts Yet</p>
         </div>
     </div>
@@ -19,13 +19,13 @@
             <div class="row  no-gutters">
                 <div class="d-flex">
                     <div class="pr-3">
-                        <a href="/profile/{{$post->user->username}}">
-                            <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle w-100" style="max-width:45px">
+                        <a href="{{route('profile.show', $post->user->username)}}">
+                            <img src="{{ $post->user->profile->profileImage() }}" class="rounded-circle w-100" style="max-width:45px">
                         </a>
                     </div>
                     <div class="align-items-center pt-2">
                         <div class="font-weight-bold">
-                            <a href="/profile/{{$post->user->username}}">
+                            <a href="{{route('profile.show', $post->user->username)}}">
                                 <span class="text-dark">{{$post->user->username}}</span>
                             </a>
                         </div>
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="pt-2">
-                <a href="/p/{{$post->id}}">
-                    <img src="/storage/{{$post->image}}" class="w-100">
+                <a href="{{route('post.single', $post->id)}}">
+                    <img src="{{ asset('storage/'.$post->image) }}" class="w-100">
                 </a>
             </div>
         </div>

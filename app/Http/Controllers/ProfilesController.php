@@ -23,7 +23,7 @@ class ProfilesController extends Controller
             now()->addSecond(30) ,
             function() use($user) {
                 return $user->profile->followers->count();
-                
+
             },);
 
         $followingCount = Cache::remember('count.following.'.$user->id,
@@ -35,7 +35,7 @@ class ProfilesController extends Controller
 
 //        determining whether th user already follows this profile
        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id): false;
-    
+
         return view('profiles.index',compact('user','follows','postCount','followersCount','followingCount'));
         }
     public function edit(User $user){
@@ -51,10 +51,10 @@ class ProfilesController extends Controller
 
         $data = request()->validate(
             [
-                'title' =>'required',
-                'description' => 'required',
-                'url' => 'url',
-                'image' => '',
+                'title' =>'nullable|string',
+                'description' => 'nullable|string',
+                'url' => 'nullable|url',
+                'image' => 'nullable|image',
             ]
         );
 
@@ -73,6 +73,6 @@ class ProfilesController extends Controller
             $imageArray ?? [],
         ));
 
-        return redirect("/profile/{$user->username}");
+        return redirect()->route('profile.show',$user->username);
     }
 }

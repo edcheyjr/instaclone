@@ -28,8 +28,7 @@ class Profile extends Model
  *
  **/
 
-      $imagePath= ($this->image) ? $this->image : "/profile/hU5jbDNufZFzcjjWdcyFRssctSR5rsUZasgfWa2l.png";
-       return "/storage/".$imagePath;
+      return ($this->image) ? asset('storage/'.$this->image) : asset("/svg/download.png");
    }
    public function followers(){
        return $this ->belongsToMany(User::class);

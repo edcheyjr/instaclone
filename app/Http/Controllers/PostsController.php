@@ -18,7 +18,7 @@ class PostsController extends Controller
 //       displaying Users Profiles
 
        $user = auth()->user()->following->pluck('user_id');
-       $following= auth()->user()->following->count();    
+       $following= auth()->user()->following->count();
         ($following!==0)
         ?$posts = Post::whereIn('user_id',$user)->with('user')->latest()->paginate(5)
         :
@@ -49,6 +49,7 @@ class PostsController extends Controller
         //finds the image path
        $imagePath=request('image')->store('uploads','public');
 
+       
         //image management using intervention package
        $image= Image::make(public_path("storage/{$imagePath}"))->fit(1200);
        $image->save();
@@ -59,7 +60,7 @@ class PostsController extends Controller
         ]);
 
         //dd(request()->all());
-       return redirect('/profile/'.auth()->user()->username);
+       return redirect()->route('profile.show', ['user' => auth()->user()->username]);
     }
 
     public function show(Post $post){

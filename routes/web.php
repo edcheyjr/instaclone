@@ -33,9 +33,9 @@ abort(404);
 
 //post controllers
 Route::get('/',[PostsController::class,'index']);
-Route::get('/p/create', [PostsController::class, 'create']);
-Route::post('/p', [PostsController::class, 'store']);
-Route::get('/p/{post}', [PostsController::class, 'show']);
+Route::get('/p/create', [PostsController::class, 'create'])->name('posts.create');;
+Route::post('/p', [PostsController::class, 'store'])->name('posts.store');
+Route::get('/p/{post}', [PostsController::class, 'show'])->name('post.single');
 
 //profile controller
 //TODO:change route to username instead of id
