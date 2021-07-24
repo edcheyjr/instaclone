@@ -42,7 +42,7 @@ class PostsController extends Controller
 
         //checks or validates where all the fields caption and image have been filled correctly
         $data=request()->validate([
-            'caption'=>'required',
+            'caption'=>['required','string'],
             'image'=>['required','image'],
         ]);
 
